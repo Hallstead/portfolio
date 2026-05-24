@@ -1,80 +1,109 @@
 import React, { useState } from 'react';
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  const [result, setResult] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const [submitted, setSubmitted] = useState(false);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+    setLoading(true);
+    setResult('Sending...');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+    const formData = new FormData(event.target);
 
-    // Very basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      alert('Please fill in all fields.');
-      return;
+    formData.append(
+      'access_key',
+      import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
+    );
+
+    formData.append(
+      'subject',
+      'New Portfolio Contact Form Submission'
+    );
+
+    try {
+      const response = await fetch(
+        'https://api.web3forms.com/submit',
+        {
+          method: 'POST',
+          body: formData,
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult('Message sent successfully!');
+        event.target.reset();
+      } else {
+        console.error(data);
+        setResult('Something went wrong.');
+      }
+    } catch (error) {
+      console.error(error);
+      setResult('Failed to send message.');
+    } finally {
+      setLoading(false);
     }
-
-    // Placeholder for actual submission (email service, API, etc.)
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
     <section className="contact-form">
-      <h2 className="contact-form__title">Contact Me</h2>
+      <h2 className="contact-form__title">
+        Contact Me
+      </h2>
 
-      {submitted && <p className="contact-form__success">Thanks! I’ll get back to you soon.</p>}
-
-      <form className="contact-form__form" onSubmit={handleSubmit}>
+      <form
+        className="contact-form__form"
+        onSubmit={handleSubmit}
+      >
         <label className="contact-form__label">
           Name
+
           <input
             type="text"
             name="name"
             className="contact-form__input"
-            value={formData.name}
-            onChange={handleChange}
             required
           />
         </label>
 
         <label className="contact-form__label">
           Email
+
           <input
             type="email"
             name="email"
             className="contact-form__input"
-            value={formData.email}
-            onChange={handleChange}
             required
           />
         </label>
 
         <label className="contact-form__label">
           Message
+
           <textarea
             name="message"
             className="contact-form__textarea"
             rows="5"
-            value={formData.message}
-            onChange={handleChange}
             required
           ></textarea>
         </label>
 
-        <button type="submit" className="contact-form__button button">
-          Send Message
+        <button
+          type="submit"
+          className="contact-form__button button"
+          disabled={loading}
+        >
+          {loading ? 'Sending...' : 'Send Message'}
         </button>
+
+        {result && (
+          <p className="contact-form__result">
+            {result}
+          </p>
+        )}
       </form>
     </section>
   );

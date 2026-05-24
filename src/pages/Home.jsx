@@ -21,7 +21,6 @@ const bioData = {
         I possess a strong work ethic, continually learn up-and-coming technologies quickly, and can easily adapt to new environments.
       </p>
     `,
-  skills: ["React", "HTML", "CSS", "JavaScript", "Sass", "Java"],
 };
 
 const Home = () => {

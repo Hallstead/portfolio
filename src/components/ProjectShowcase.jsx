@@ -10,51 +10,46 @@ const ProjectShowcase = () => {
 
   const allProjects = [
     {
-      title: 'Project One',
-      description: 'Built with React and Sass.',
-      tech: ['React', 'Sass'],
-      liveLink: 'https://your-project.com',
-      githubLink: 'https://github.com/yourusername/project-one',
+      title: "Bill's PC API",
+      description:
+        "A RESTful Pokémon storage API inspired by Bill’s PC system from the Pokémon games. Built with TypeScript using a layered backend architecture with DAOs, services, routers, and models. Features authenticated user storage, CRUD operations, data validation, automated testing, external API integration with PokeAPI, and AWS-hosted persistence.",
+      tech: ['TypeScript', 'AWS', 'REST API', 'HTML', 'CSS', 'JavaScript'],
+      liveLink: '',
+      githubLink: 'https://github.com/Hallstead/Bills-PC-API',
     },
     {
-      title: 'Project Two',
-      description: 'Another example project with a different stack.',
-      tech: ['JavaScript', 'HTML', 'CSS'],
-      liveLink: 'https://your-other-project.com',
-      githubLink: 'https://github.com/yourusername/project-two',
+      title: 'AP-Pokeclicker',
+      description:
+        'An open-source adaptation of Pokeclicker that integrates Archipelago multiworld randomizer support into the game. Implemented client-server communication systems to connect with Archipelago servers, synchronize progression, transmit location checks, and receive randomized item data within the game experience.',
+      tech: ['TypeScript', 'HTML', 'JavaScript', 'Python'],
+      liveLink: 'https://hallstead.github.io/AP-Pokeclicker/',
+      githubLink: 'https://github.com/Hallstead/AP-Pokeclicker',
     },
     {
-      title: 'Project Two',
-      description: 'Another example project with a different stack.',
-      tech: ['JavaScript', 'HTML', 'CSS'],
-      liveLink: 'https://your-other-project.com',
-      githubLink: 'https://github.com/yourusername/project-two',
+      title: 'Battle RPG',
+      description:
+        'An original Python/Pygame RPG featuring randomized map generation, turn-based combat, enemy AI behaviors, status effects, and character-specific abilities. Players navigate a dynamically generated forest, solve puzzles, manage inventory and combat resources, and battle enemies through a state-driven GUI combat system.',
+      tech: ['Python', 'Pygame'],
+      liveLink: '',
+      githubLink: 'https://github.com/JordonHillKirk/battle-rpg',
     },
     {
-      title: 'Project Two',
-      description: 'Another example project with a different stack.',
-      tech: ['JavaScript', 'HTML', 'CSS'],
-      liveLink: 'https://your-other-project.com',
-      githubLink: 'https://github.com/yourusername/project-two',
-    },
-    {
-      title: 'Project Two',
-      description: 'Another example project with a different stack.',
-      tech: ['JavaScript', 'HTML', 'CSS'],
-      liveLink: 'https://your-other-project.com',
-      githubLink: 'https://github.com/yourusername/project-two',
-    },
-    {
-      title: 'Project Two',
-      description: 'Another example project with a different stack.',
-      tech: ['JavaScript', 'HTML', 'CSS'],
-      liveLink: 'https://your-other-project.com',
-      githubLink: 'https://github.com/yourusername/project-two',
+      title: 'Portfolio',
+      description:
+        'A responsive developer portfolio built with React and SCSS to showcase professional and personal projects, technical skills, and contact information. Features adaptive dark/light theme support based on user system preferences and a flexible layout optimized for multiple viewport sizes.',
+      tech: ['React', 'JavaScript', 'HTML', 'SASS/SCSS'],
+      liveLink: 'https://hallstead.github.io/portfolio/',
+      githubLink: 'https://github.com/Hallstead/portfolio',
     },
     // Add more projects
   ];
 
-  const techOptions = ['All', ...new Set(allProjects.flatMap((p) => p.tech))];
+  const techOptions = [
+    'All',
+    ...[...new Set(allProjects.flatMap((p) => p.tech))].sort((a, b) =>
+      a.localeCompare(b)
+    ),
+  ];
 
   const filteredProjects =
     filter === 'All'

@@ -5,10 +5,8 @@ const SkillsGallery = () => {
   const skills = [
     { name: "JavaScript" },
     { name: "React" },
-    { name: "Sass" },
     { name: "HTML" },
-    { name: "CSS" },
-    { name: "Git" },
+    { name: "Python" },
     // Add or customize skills here
   ];
 
