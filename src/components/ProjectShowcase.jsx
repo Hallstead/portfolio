@@ -47,7 +47,7 @@ const ProjectShowcase = () => {
         'A responsive developer portfolio built with React and SCSS to showcase professional and personal projects, technical skills, and contact information. Features adaptive dark/light theme support based on user system preferences and a flexible layout optimized for multiple viewport sizes.',
       tech: ['React', 'JavaScript', 'HTML', 'SASS/SCSS', 'UI/UX'],
       liveLink: 'https://hallstead.github.io',
-      githubLink: 'https://github.com/Hallstead/portfolio',
+      githubLink: 'https://github.com/Hallstead/Hill-Mobile-Tech-Website',
     },
     // Add more projects
   ];
