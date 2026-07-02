@@ -10,6 +10,14 @@ const ProjectShowcase = () => {
 
   const allProjects = [
     {
+      title: 'Hill Mobile Tech Website',
+      description:
+        "Designed and developed a responsive business website for Hill Mobile Tech, a mobile computer repair and technology support company. Built a multi-page static website featuring custom branding, service descriptions, contact information, SEO optimization, and responsive layouts. Deployed the site using GitHub Pages with a custom domain and integrated it with the company's online presence.",
+      tech: ["HTML", "CSS", "SEO", "UI/UX"],
+      liveLink: 'https://www.gethillmobiletech.com',
+      githubLink: 'https://github.com/Hallstead/',
+    },
+    {
       title: "Bill's PC API",
       description:
         "A RESTful Pokémon storage API inspired by Bill’s PC system from the Pokémon games. Built with TypeScript using a layered backend architecture with DAOs, services, routers, and models. Features authenticated user storage, CRUD operations, data validation, automated testing, external API integration with PokeAPI, and AWS-hosted persistence.",
@@ -37,8 +45,8 @@ const ProjectShowcase = () => {
       title: 'Portfolio',
       description:
         'A responsive developer portfolio built with React and SCSS to showcase professional and personal projects, technical skills, and contact information. Features adaptive dark/light theme support based on user system preferences and a flexible layout optimized for multiple viewport sizes.',
-      tech: ['React', 'JavaScript', 'HTML', 'SASS/SCSS'],
-      liveLink: 'https://hallstead.github.io/portfolio/',
+      tech: ['React', 'JavaScript', 'HTML', 'SASS/SCSS', 'UI/UX'],
+      liveLink: 'https://hallstead.github.io',
       githubLink: 'https://github.com/Hallstead/portfolio',
     },
     // Add more projects
